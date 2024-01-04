@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "304828831275",
+    "project_id": "chinese-fortune-tiger",
+    "storage_bucket": "chinese-fortune-tiger.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:304828831275:android:f91f51b5083e077295fc6e",
+        "android_client_info": {
+          "package_name": "com.fortunetiger.chi"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDr5rNJO5WlHaRUOJIj9CN7TR9EQGO5yfM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
