@@ -1,0 +1,20 @@
+workflows:
+  android-workflow:
+    name: Android Workflow
+    environment:
+      vars:
+        # Эти значения должны быть добавлены в Codemagic в зашифрованном виде
+        CM_KEYSTORE: Encrypted(dikhan228) # Зашифрованный файл keystore
+        CM_KEYSTORE_PASSWORD: Encrypted(dikhan228) # Зашифрованный пароль keystore
+        CM_KEY_ALIAS: Encrypted(dikhan228) # Зашифрованный псевдоним ключа
+        CM_KEY_PASSWORD: Encrypted(dikhan228) # Зашифрованный пароль ключа
+    scripts:
+      - name: key0
+        script: | 
+          echo $CM_KEYSTORE | base64 --decode > /tmp/keystore.keystore
+      - name: Build release AAB
+        script: | 
+          cd android
+          ./gradlew bundleRelease -Pandroid.injected.signing.store.file=/tmp/keystore.keystore -Pandroid.injected.signing.store.password=$CM_KEYSTORE_PASSWORD -Pandroid.injected.signing.key.alias=$CM_KEY_ALIAS -Pandroid.injected.signing.key.password=$CM_KEY_PASSWORD
+    artifacts:
+      - android/app/build/outputs/bundle/release/app-release.aab
